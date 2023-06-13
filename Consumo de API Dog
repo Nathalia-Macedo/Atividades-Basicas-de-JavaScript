@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img id="aleatorio" src="" alt=""/><!--Criamos um espaço para imagem que vamos utilizar depois-->
+    <button onclick="trazer()">Traga uma imagem aleatoria</button> <!--Criamos um botão para chamar a função que vamos criar la embaixo-->
+    <script>
+        function trazer(){//criamos a função
+            fetch("https://dog.ceo/api/breeds/image/random")// Pedimos ao computador para CAPTAR (fetch) a url que a api nos deu
+            .then(Response => Response.json())//Dissemos ao computador, capte a url, e então, a resposta que a url traz, transforme para javascript (tirar do formato JSON)
+            .then(dados => {  //Então (then) depois de tirar o formato json,  
+            console.log(dados) //Pedimos pra mostrar no console.
+            let imagem = document.getElementById("aleatorio")//pegamos a imagem
+            imagem.src = dados.message// pegamos o atributo src da iagem, e igualamos a mensagem que a url retornou.
+        })
+        .catch(error => console.log(dados.message))
+
+
+        }
+       
+
+    </script>
+</body>
+</html>
